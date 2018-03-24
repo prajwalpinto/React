@@ -2,9 +2,9 @@
   "name": "react-redux-basic",
   "version": "1.0.0",
   "description": "A basic setup for redux with react",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --hot"
   },
   "repository": {
     "type": "git",

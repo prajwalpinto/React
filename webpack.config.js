@@ -16,7 +16,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   //Entry point to our app
-  entry: APP_DIR + '/index.js',
+  entry: APP_DIR + '/index.jsx',
   //Where the bundled js file to be located after successful build
   output: {
     path: BUILD_DIR + '/js',
