@@ -20,22 +20,48 @@ var Movie = React.createClass({
   }
 })
 var Thecomment =React.createClass({
+  getInitialState:function(){
+    return{editing:false}
+  },
   edit:function() {
-    alert('Editing comment');
+    this.setState({editing:true})
+    //alert('Editing comment');
+  },
+  save:function(){
+    var val=this.refs.newText.value;
+    console.log(val);
+    this.setState({editing:false})
   },
   remove:function(){
-    alert('removing comment');
+    console.log('removing comment');
   },
-  render:function(){
+  EditMode:function()
+  {
+    return(
+    <div>
+    <textarea ref="newText" defaultValue={this.props.children }></textarea>
+      <button onClick={this.save} color="blue">Save</button>
+      </div>
+    )
+  },
+  DisplayMode:function()
+  {
     return(
       <div>
-      <div>{this.props.children} </div>
-        <button onClick = {this.edit} color="red">Edit</button>
-        <button onClick={this.remove} color="blue">Remove</button>
-
+    <div>{this.props.children} </div>
+      <button onClick = {this.edit} color="red">Edit</button>
+      <button onClick={this.remove} color="blue">Remove</button>
       </div>
+    );
 
-    )
+  },
+  render:function(){
+      if (this.state.editing){
+       return this.EditMode();
+    }else{
+      return this.DisplayMode();
+    }
+
   }
 })
 
