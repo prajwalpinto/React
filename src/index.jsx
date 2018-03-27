@@ -38,6 +38,31 @@ var Thecomment =React.createClass({
     )
   }
 })
+
+var PropsDemo = React.createClass({
+getInitialState:function(){
+    return ({checked:true})
+},
+togglechecked:function()
+{
+  this.setState({checked: !this.state.checked})
+},
+render:function()
+{
+var msg;
+if(this.state.checked){
+  msg='checked'
+}else{
+  msg='Unchecked'
+}
+return(
+  <div>
+<input type = "checkbox" onChange = {this.togglechecked} defaultChecked={this.state.checked}/>
+<h3>Checkbox is {msg}</h3>
+  </div>
+)
+}
+})
 var MainMethod = React.createClass({
   render:function(){
     return(
@@ -49,6 +74,7 @@ var MainMethod = React.createClass({
       <Movie title="Avengers" genre="Action" />
       <Movie title="Independence Day" genre="World" />
       <Thecomment>Bla Bla</Thecomment>
+      <PropsDemo/>
       </div>
     )
   }
